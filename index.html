@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <title>Moje CV</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Twoje Imię i Nazwisko</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Jan Kowalski</h1>
-    <p>Programista Front-end / Student Informatyki</p>
-  </header>
+    <div class="container">
+        <header>
+            <div class="personal-info">
+                <h1>Twoje Imię i Nazwisko</h1>
+                <p class="profession">Twoje Stanowisko</p>
+                <p><a href="mailto:twoj.email@example.com">twoj.email@example.com</a> | <a href="tel:+48123456789">+48 123 456 789</a> | <a href="twoja-strona.pl" target="_blank">twoja-strona.pl</a> | Kraków</p>
+            </div>
+            <div class="profile-image">
+                <img src="zdjecie-profilowe.jpg" alt="Twoje zdjęcie">
+            </div>
+        </header>
 
-  <section id="o-mnie">
-    <h2>O mnie</h2>
-    <p>Jestem studentem Informatyki na AGH, pasjonuję się tworzeniem aplikacji webowych...</p>
-  </section>
+        <section class="section">
+            <h2>Podsumowanie Zawodowe</h2>
+            <p>Krótkie i zwięzłe podsumowanie Twoich kluczowych umiejętności, doświadczenia i celów zawodowych. Skup się na tym, co możesz zaoferować potencjalnemu pracodawcy.</p>
+        </section>
 
-  <section id="umiejetnosci">
-    <h2>Umiejętności</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript</li>
-      <li>React, Angular</li>
-      <li>Azure, Docker, Kubernetes</li>
-    </ul>
-  </section>
+        <section class="section">
+            <h2>Doświadczenie Zawodowe</h2>
+            <div class="experience-item">
+                <h3>Stanowisko | Nazwa Firmy</h3>
+                <p class="duration">Od Miesiąc Rok - Do Miesiąc Rok</p>
+                <ul>
+                    <li>Opis pierwszego osiągnięcia lub odpowiedzialności.</li>
+                    <li>Opis drugiego osiągnięcia lub odpowiedzialności.</li>
+                    <li>Opis trzeciego osiągnięcia lub odpowiedzialności.</li>
+                </ul>
+            </div>
+            </section>
 
-  <!-- Dodaj kolejne sekcje... -->
+        <section class="section">
+            <h2>Wykształcenie</h2>
+            <div class="education-item">
+                <h3>Nazwa Uczelni | Kierunek Studiów</h3>
+                <p class="duration">Od Miesiąc Rok - Do Miesiąc Rok</p>
+                <p>Opis ukończonych studiów lub zdobytych umiejętności.</p>
+            </div>
+            </section>
 
-  <footer>
-    <p>Kontakt: jan.kowalski@example.com</p>
-  </footer>
+        <section class="section">
+            <h2>Umiejętności</h2>
+            <ul class="skills-list">
+                <li>Umiejętność 1</li>
+                <li>Umiejętność 2</li>
+                <li>Umiejętność 3</li>
+                <li>Umiejętność 4</li>
+                <li>Umiejętność 5</li>
+                </ul>
+        </section>
+
+        <section class="section">
+            <h2>Zainteresowania</h2>
+            <p>Krótko opisz swoje zainteresowania, które mogą świadczyć o Twojej osobowości i pasji.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Twoje Imię i Nazwisko</p>
+        </footer>
+    </div>
 </body>
 </html>
