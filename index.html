@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolorowe CV - Twoje Imię i Nazwisko</title>
+    <title>Kolorowe CV z Animacjami - Twoje Imię i Nazwisko</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
                 <img src="zdjecie-profilowe.jpg" alt="Twoje zdjęcie">
             </div>
             <div class="personal-info">
-                <h1 class="gradient-text">Twoje Imię i Nazwisko</h1>
+                <h1 class="gradient-text" id="name-header">Twoje Imię i Nazwisko</h1>
                 <p class="fancy-profession">✨ Kreatywny Profesjonalista ✨</p>
                 <div class="contact-info">
                     <span class="icon">📧</span> <a href="mailto:twoj.email@example.com">twoj.email@example.com</a>
@@ -53,7 +54,7 @@
 
         <section class="fancy-section" style="background-color: #c7d2fe;">
             <h2 class="star-border">Umiejętności <span style="font-size: 1.2em;">✨</span></h2>
-            <div class="skills-container">
+            <div class="skills-container" id="skills-container">
                 <span class="skill-badge" style="background-color: #ff6b6b;">Kreatywność</span>
                 <span class="skill-badge" style="background-color: #4ecdc4;">Innowacyjność</span>
                 <span class="skill-badge" style="background-color: #ffe66d;">Praca Zespołowa</span>
@@ -71,5 +72,56 @@
             <p> Wygenerowano z magią i kolorami! &copy; 2025 Twoja Kreatywna Persona</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animacja pojawiania się nagłówka z imieniem
+            const nameHeader = document.getElementById('name-header');
+            if (nameHeader) {
+                nameHeader.style.opacity = 0;
+                let opacity = 0;
+                const fadeInInterval = setInterval(function() {
+                    opacity += 0.02;
+                    nameHeader.style.opacity = opacity;
+                    if (opacity >= 1) {
+                        clearInterval(fadeInInterval);
+                    }
+                }, 30);
+            }
+
+            // Animacja "skakania" umiejętności
+            const skillsContainer = document.getElementById('skills-container');
+            if (skillsContainer) {
+                const skillBadges = skillsContainer.querySelectorAll('.skill-badge');
+                skillBadges.forEach((badge, index) => {
+                    setTimeout(() => {
+                        badge.classList.add('animate-bounce');
+                        badge.addEventListener('animationend', () => {
+                            badge.classList.remove('animate-bounce');
+                        });
+                    }, index * 200); // Opóźnienie dla każdego elementu
+                });
+            }
+        });
+    </script>
+
+    <style>
+        /* Dodajemy style dla animacji w CSS */
+        .animate-bounce {
+            animation: bounce 0.5s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
 </body>
 </html>
