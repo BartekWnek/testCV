@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolorowe CV z Animacjami - Twoje Imię i Nazwisko</title>
+    <title>Ekstra Kolorowe CV z Efektami - Twoje Imię i Nazwisko</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,26 +11,30 @@
         <header>
             <div class="avatar-glow">
                 <img src="zdjecie-profilowe.jpg" alt="Twoje zdjęcie">
-            </div>
+                <div class="glow-effect"></div> </div>
             <div class="personal-info">
-                <h1 class="gradient-text" id="name-header">Twoje Imię i Nazwisko</h1>
+                <h1 class="gradient-text" id="name-header">
+                    <span data-text="Twoje">Twoje</span>
+                    <span data-text="Imię">Imię</span>
+                    <span data-text="i">i</span>
+                    <span data-text="Nazwisko">Nazwisko</span>
+                </h1>
                 <p class="fancy-profession">✨ Kreatywny Profesjonalista ✨</p>
                 <div class="contact-info">
                     <span class="icon">📧</span> <a href="mailto:twoj.email@example.com">twoj.email@example.com</a>
                     <span class="icon">📞</span> <a href="tel:+48123456789">+48 123 456 789</a>
                     <span class="icon">🌐</span> <a href="twoja-strona.pl" target="_blank">twoja-strona.pl</a>
-                    <span class="icon">📍</span> Kraków
-                </div>
+                    <span class="icon">📍</span> <span class="location">Kraków</span> </div>
             </div>
         </header>
 
         <section class="fancy-section" style="background-color: #ffdd59;">
-            <h2 class="wavy-border">O Mnie <span style="font-size: 1.2em;">🌈</span></h2>
+            <h2 class="wavy-border">O Mnie <span class="emoji">🌈</span></h2>
             <p class="shadow-text">Ekscytujące podsumowanie Twojej pasji, unikalnych umiejętności i tego, co Cię wyróżnia. Nie bój się użyć bardziej opisowego języka!</p>
-        </section>
+            <div class="parallax-element" data-speed="0.2"></div> </section>
 
         <section class="fancy-section" style="background-color: #a7f3d0;">
-            <h2 class="bubbly-border">Doświadczenie <span style="font-size: 1.2em;">🚀</span></h2>
+            <h2 class="bubbly-border">Doświadczenie <span class="emoji">🚀</span></h2>
             <div class="experience-item">
                 <h3 class="highlight-text">Super Stanowisko w Fajnej Firmie</h3>
                 <p class="duration">Czerwiec 2023 - Sierpień 2024</p>
@@ -40,88 +43,41 @@
                     <li>Współpracowałem/am z zespołem, tworząc innowacyjne rozwiązania.</li>
                     <li>Moje umiejętności [wymień konkretne umiejętności] były kluczowe w tym projekcie.</li>
                 </ul>
-            </div>
+                <div class="ribbon"><span>Kluczowe Osiągnięcie</span></div> </div>
             </section>
 
         <section class="fancy-section" style="background-color: #fccac7;">
-            <h2 class="dotted-border">Edukacja <span style="font-size: 1.2em;">🎓</span></h2>
+            <h2 class="dotted-border">Edukacja <span class="emoji">🎓</span></h2>
             <div class="education-item">
                 <h3 class="colorful-title">Magister Inżynierii Kosmicznej na Uniwersytecie Marzeń</h3>
                 <p class="duration">Październik 2019 - Maj 2023</p>
                 <p class="details">Z wyróżnieniem ukończyłem/am specjalizację w dziedzinie podróży międzygwiezdnych i budowy rakiet zasilanych tęczą.</p>
-            </div>
+                <div class="badge">Wyróżnienie</div> </div>
             </section>
 
         <section class="fancy-section" style="background-color: #c7d2fe;">
-            <h2 class="star-border">Umiejętności <span style="font-size: 1.2em;">✨</span></h2>
+            <h2 class="star-border">Umiejętności <span class="emoji">✨</span></h2>
             <div class="skills-container" id="skills-container">
                 <span class="skill-badge" style="background-color: #ff6b6b;">Kreatywność</span>
                 <span class="skill-badge" style="background-color: #4ecdc4;">Innowacyjność</span>
                 <span class="skill-badge" style="background-color: #ffe66d;">Praca Zespołowa</span>
                 <span class="skill-badge" style="background-color: #81ecec;">Rozwiązywanie Problemów</span>
                 <span class="skill-badge" style="background-color: #a29bfe;">Komunikatywność</span>
-                </div>
+                <div class="shadow-overlay"></div> </div>
         </section>
 
         <section class="fancy-section" style="background-color: #f9f871;">
-            <h2 class="zigzag-border">Zainteresowania <span style="font-size: 1.2em;">🎨</span></h2>
+            <h2 class="zigzag-border">Zainteresowania <span class="emoji">🎨</span></h2>
             <p class="fun-text">Moje pasje to malowanie jednorożców na chmurach, taniec z robotami i kolekcjonowanie tęczowych kamieni. W wolnym czasie buduję zamki z klocków LEGO i uczę języka elfów mojego kota.</p>
+            <ul class="interest-list"> <li><span class="icon-interest">🦄</span> Malowanie jednorożców</li>
+                <li><span class="icon-interest">🤖</span> Taniec z robotami</li>
+                <li><span class="icon-interest">🌈</span> Kolekcjonowanie tęczowych kamieni</li>
+            </ul>
         </section>
 
         <footer style="background-color: #b19cd9; color: white; text-align: center; padding: 20px; border-radius: 0 0 8px 8px;">
             <p> Wygenerowano z magią i kolorami! &copy; 2025 Twoja Kreatywna Persona</p>
         </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animacja pojawiania się nagłówka z imieniem
-            const nameHeader = document.getElementById('name-header');
-            if (nameHeader) {
-                nameHeader.style.opacity = 0;
-                let opacity = 0;
-                const fadeInInterval = setInterval(function() {
-                    opacity += 0.02;
-                    nameHeader.style.opacity = opacity;
-                    if (opacity >= 1) {
-                        clearInterval(fadeInInterval);
-                    }
-                }, 30);
-            }
-
-            // Animacja "skakania" umiejętności
-            const skillsContainer = document.getElementById('skills-container');
-            if (skillsContainer) {
-                const skillBadges = skillsContainer.querySelectorAll('.skill-badge');
-                skillBadges.forEach((badge, index) => {
-                    setTimeout(() => {
-                        badge.classList.add('animate-bounce');
-                        badge.addEventListener('animationend', () => {
-                            badge.classList.remove('animate-bounce');
-                        });
-                    }, index * 200); // Opóźnienie dla każdego elementu
-                });
-            }
-        });
-    </script>
-
-    <style>
-        /* Dodajemy style dla animacji w CSS */
-        .animate-bounce {
-            animation: bounce 0.5s ease-in-out;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-    </style>
 </body>
 </html>

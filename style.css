@@ -1,21 +1,23 @@
 body {
-    font-family: 'Montserrat', sans-serif; /* Fajniejsza czcionka */
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
-    background-color: #f0f8ff; /* Jasne tło */
+    background-color: #f0f8ff;
     color: #555;
     line-height: 1.7;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden; /* Ukryj poziomy pasek przewijania przy efektach parallax */
 }
 
 .colorful-container {
     max-width: 800px;
-    background: linear-gradient(135deg, #e0f7fa, #c8e6c9); /* Gradientowe tło kontenera */
+    background: linear-gradient(135deg, #e0f7fa, #c8e6c9);
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative; /* Dla pozycjonowania absolutnie elementów wewnątrz */
 }
 
 header {
@@ -34,12 +36,30 @@ header {
     margin-right: 30px;
     box-shadow: 0 0 15px #4dd0e1;
     animation: pulsate 2s infinite alternate;
+    transition: transform 0.3s ease-in-out;
+    position: relative; /* Dla pozycjonowania glow-effect */
 }
 
-.avatar-glow img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.avatar-glow:hover {
+    transform: scale(1.1);
+}
+
+.glow-effect {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 60px;
+    box-shadow: 0 0 20px #80deea;
+    opacity: 0.7;
+    animation: innerPulsate 1.5s ease-in-out infinite alternate;
+    z-index: -1; /* Za zdjęciem */
+}
+
+@keyframes innerPulsate {
+    from { opacity: 0.7; transform: scale(1); }
+    to { opacity: 0.9; transform: scale(1.05); }
 }
 
 @keyframes pulsate {
@@ -53,6 +73,23 @@ header {
     background: linear-gradient(to right, #ff8a65, #ffcd6d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Dla animacji liter */
+    gap: 5px;
+}
+
+.personal-info h1 span {
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.personal-info h1:hover span:nth-child(odd) {
+    transform: translateY(-5px) rotate(-5deg);
+    opacity: 0.8;
+}
+
+.personal-info h1:hover span:nth-child(even) {
+    transform: translateY(5px) rotate(5deg);
+    opacity: 0.8;
 }
 
 .fancy-profession {
@@ -60,6 +97,12 @@ header {
     color: #7b1fa2;
     font-size: 1.2em;
     margin-bottom: 15px;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
 .contact-info {
@@ -72,14 +115,34 @@ header {
 .contact-info a {
     color: #1976d2;
     text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .contact-info a:hover {
     text-decoration: underline;
+    color: #e91e63;
+    transform: scale(1.05);
 }
 
 .icon {
     font-size: 1.1em;
+    animation: rotateIcon 2s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes rotateIcon {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.location {
+    font-weight: bold;
+    color: #00bcd4;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 .fancy-section {
@@ -87,117 +150,70 @@ header {
     margin-bottom: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative; /* Dla parallax */
+    overflow: hidden; /* Ukryj wychodzące elementy parallax */
+}
+
+.fancy-section:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.wavy-border, .bubbly-border, .dotted-border, .star-border, .zigzag-border {
+    font-size: 2em;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .wavy-border {
-    font-size: 2em;
     color: #d84315;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
     border-bottom: 5px wavy #f48fb1;
+    animation: waveBorder 1s linear infinite alternate;
+}
+
+@keyframes waveBorder {
+    from { transform: translateY(0px); }
+    to { transform: translateY(5px); }
 }
 
 .bubbly-border {
-    font-size: 2em;
     color: #1a237e;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
     border-bottom: 5px dotted #3f51b5;
+    animation: bubbleBorder 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes bubbleBorder {
+    0% { border-bottom-style: dotted; border-bottom-width: 5px; }
+    100% { border-bottom-style: dashed; border-bottom-width: 8px; }
 }
 
 .dotted-border {
-    font-size: 2em;
     color: #c2185b;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
     border-bottom: 5px dashed #e91e63;
+    animation: dashBorder 0.5s step-end infinite alternate;
+}
+
+@keyframes dashBorder {
+    50% { border-bottom-color: transparent; }
 }
 
 .star-border {
-    font-size: 2em;
     color: #00796b;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
     border-bottom: 5px solid #4db6ac;
+    animation: twinkleBorder 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkleBorder {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.05); }
 }
 
 .zigzag-border {
-    font-size: 2em;
     color: #ff6f00;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
     border-bottom: 5px double #ffca28;
+    animation: zigzagBorder 0.7s linear infinite alternate;
 }
 
-.shadow-text {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.highlight-text {
-    color: #ff4081;
-    font-weight: bold;
-}
-
-.colorful-title {
-    color: #673ab7;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.experience-item {
-    margin-bottom: 25px;
-    padding: 15px;
-    border-left: 5px solid #ff9800;
-    background-color: rgba(255, 152, 0, 0.1);
-    border-radius: 5px;
-}
-
-.experience-item ul.check-list {
-    list-style-type: none;
-    padding-left: 20px;
-}
-
-.experience-item ul.check-list li::before {
-    content: "✓";
-    color: #4caf50;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-    margin-right: 0.5em;
-}
-
-.education-item {
-    margin-bottom: 25px;
-    padding: 15px;
-    border-left: 5px solid #9c27b0;
-    background-color: rgba(156, 39, 176, 0.1);
-    border-radius: 5px;
-}
-
-.education-item .details {
-    font-style: italic;
-    color: #7e57c2;
-}
-
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.skill-badge {
-    padding: 10px 20px;
-    border-radius: 25px;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.fun-text {
-    font-size: 1.1em;
-    color: #2e7d32;
-    line-height: 1.8;
-}
-
-/* Możesz dodać więcej fikuśnych stylów i animacji! */
+@keyframes zigzagBorder {
+    0% { transform: translateX(0
